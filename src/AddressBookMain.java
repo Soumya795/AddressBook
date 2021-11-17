@@ -108,6 +108,24 @@ public class AddressBookMain {
             }
         }
     }
-}
 
+    public void delete()//Method to delete contact
+    {
+        System.out.println("Enter the person whose contact needs to be deleted");
+        String name1=sc.next();
+        for(int j=0;j<contact.size();j++)
+        {
+            AddressBookMain object=contact.get(j);
+            if(object.firstName.equals(name1))
+            {
+                contact.remove(object);
+            }
+            else
+            {
+                System.out.println("Name does not exist");
+            }
+        }
+    }
+
+}
 
