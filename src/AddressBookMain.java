@@ -42,6 +42,47 @@ public class AddressBookMain {
         phNumber = sc.next();
     }
 
+    public void display()//Display contact information
+    {
+        System.out.println("Enter person's first name: ");
+        String name = sc.next();
+        for (int j = 0; j < contact.size(); j++) {
+            AddressBookMain address_book = contact.get(j);
+            if (address_book.firstName.equals(name)) {
+                System.out.println("First Name:" + firstName);
+                System.out.println("Last Name:" + lastName);
+                System.out.println("Address:" + address);
+                System.out.println("City:" + city);
+                System.out.println("State:" + state);
+                System.out.println("Zip:" + pin);
+                System.out.println("Phone Number:" + phNumber);
+
+            }
+        }
+    }
+
+    public void displayAddressBook()//Display complete contact in Address Book
+
+    {
+        if (contact.size() == 0) {
+            System.out.println("No contact present in the Address Book");
+        } else {
+            System.out.println("Following contacts are present in Address Book");
+            for (int j = 0; j < contact.size(); j++) {
+                AddressBookMain object = contact.get(j);
+                System.out.println("First Name:" + object.firstName);
+                System.out.println("Last Name:" + object.lastName);
+                System.out.println("Address:" + object.address);
+                System.out.println("City:" + object.city);
+                System.out.println("State:" + object.state);
+                System.out.println("Zip:" + object.pin);
+                System.out.println("Phone Number:" + object.phNumber);
+
+
+            }
+        }
+    }
+
     public void editContact()//Edits the details of the contact present in Address Book
     {
         System.out.println("Enter the person whose contact needs to be edited");
