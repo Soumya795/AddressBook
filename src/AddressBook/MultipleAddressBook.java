@@ -25,31 +25,44 @@ import java.util.Hashtable;
         }
         public static void main(String[] args) {
 
-            Hashtable<String,AddressBookMain>  multipleAddressBook = new Hashtable<String, AddressBookMain>();  //dictionary for mapping different address book with key
-            AddressBookMain contact = new AddressBookMain();
+            Hashtable<String,AddressBookMain> MultipleAddressBook=new Hashtable<String,AddressBookMain>();
+            AddressBookMain address_book=new AddressBookMain();
 
-            String n="";
-            String y= "AddressBookName" ;
-            multipleAddressBook.put(y, contact);//put the first Address book into dictionary
+            String AddressBookName="AddressBookSystem";
+            MultipleAddressBook.put(AddressBookName,address_book);
 
-            while(k!=6)
+            while(k!=7)
             {
-                System.out.println("Enter your choice\n 1) Create New Address Book\n 2) Add Contact \n 3) Edit existing Contact\n 4) Delete contact\n 5) Display Address Book\n 6) Exit"); //user selection
+                System.out.println("Enter your choice\n1.addContact contact\n2.editContact contact\n3.delete\n4.displayAddressBook\n5.create AnotherAdressBook");
                 int choice=sc.nextInt();
-                if(choice==1)//to create a new address book
+                if(choice==1)//To create new Address Book
                 {
-                    System.out.println("Enter the name of the Address Book:");
-                    n=sc.next();
-                    AddressBookMain addressBook1 = new AddressBookMain();// a new Address Book object is created
-                    multipleAddressBook.put(n, addressBook1);
-
+                    System.out.println("Enter name of the Address Book: ");
+                    AddressBookName=sc.next();
+                    AddressBookMain object1=new AddressBookMain();
+                    MultipleAddressBook.put(AddressBookName,object1);
+                }
+                if(choice==5)
+                {
+                    System.out.println("Enter the name of the Address Book: ");
+                    AddressBookName = sc.next();
+                    if(MultipleAddressBook.containsKey(AddressBookName))
+                    {
+                        System.out.println("Address Book already exists.");
+                        AddressBookName=sc.next();
+                    }
+                    AddressBookMain object2 = new AddressBookMain();
+                    MultipleAddressBook.put(AddressBookName, object2);
                 }
                 else
                 {
-                    System.out.println("Enter the name of the AddressBook where you want to perform the operations: ");
-                    n=sc.next();
-                    choiceUser(choice,multipleAddressBook.get(n));
+                    System.out.println("Enter name of the Address Book to modify the contact: ");
+                    AddressBookName=sc.next();
+                    choiceUser(choice,MultipleAddressBook.get(AddressBookName));
                 }
             }
+
+
         }
+
     }
